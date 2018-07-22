@@ -63,8 +63,8 @@ any other type of model which implements `Reacterable` contract.
 
 ### Prepare Reacterable Model
 
-Use `Cog\Contracts\Love\Reacterable\Models\Reacterable` contract in model which will act as Reacter and implement it
-using `Cog\Laravel\Love\Reacterable\Models\Traits\Reacterable` trait bundled out of the box.
+Use `Reacterable` contract in model which will act as Reacter and implement it
+using `Reacterable` trait bundled out of the box.
 
 ```php
 use Cog\Contracts\Love\Reacterable\Models\Reacterable as ReacterableContract;
@@ -81,8 +81,8 @@ class User extends Authenticatable implements ReacterableContract
 
 ### Prepare Reactable Model
 
-Use `Cog\Contracts\Love\Reactable\Models\Reactable` contract in model which will receive reactions and implement it
-using `Cog\Laravel\Love\Reactable\Models\Traits\Reactable` trait bundled out of the box.
+Use `Reactable` contract in model which will receive reactions and implement it
+using `Reactable` trait bundled out of the box.
 
 ```php
 use Cog\Contracts\Love\Reactable\Models\Reactable as ReactableContract;
