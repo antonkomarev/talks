@@ -129,7 +129,7 @@ We need to get `Reacter` model related to `User` model.
 $reacter = $user->reacter()->first();
 ```
 
-*Then we will be able to use all `Reacter` methods.*
+*Then you will be able to use all `Reacter` methods.*
 
 ---
 
