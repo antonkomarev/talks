@@ -15,7 +15,11 @@ There are many different implementations in modern applications:
 
 ---
 
-# Domain
+# Theory
+
+---
+
+## Domain
 
 ---
 
@@ -33,7 +37,7 @@ There are many different implementations in modern applications:
 
 ---
 
-# Real code
+# Practice
 
 ---
 
@@ -97,17 +101,17 @@ class Comment extends Model implements ReactableContract
 
 ---
 
-# Use cases
+## Use cases
 
 ---
 
-## User oriented actions
+### User oriented actions
 
 ---
 
 #### 1. Allow User to act as Reacter.
 
-If `Reacterable` model don't has related `Reacter` model yet, we need to create it.
+If `Reacterable` model don't has related `Reacter` model yet, you need to create it.
 
 
 ```php
@@ -118,7 +122,7 @@ $user->reacter()->create();
 
 ---
 
-#### 2. Make User to act as Reacter.
+#### 2. Start User to act as Reacter.
 
 We need to get `Reacter` model related to `User` model. Then we will be able to use all `Reacter` methods.
 
@@ -165,7 +169,7 @@ Or just use service class:
 $service = new ReacterService($reacter);
 $reactables = $service->reactables();
 
-// or
+// ordered by `id`
 $reactables = $service->reactablesOrderedBy('id', 'DESC');
 ```
 
@@ -182,13 +186,13 @@ $reacter->reactions()->get();
 
 ---
 
-## Content oriented actions
+### Content oriented actions
 
 ---
 
 #### 1. Allow Comment to act as Reactant.
 
-If `Reactable` model don't has related `Reactant` model yet, we need to create it.
+If `Reactable` model don't has related `Reactant` model yet, you need to create it.
 
 ```php
 $comment->reactant()->create();
@@ -224,6 +228,7 @@ Or just use service class:
 $service = new ReactantService($reactant);
 $reacterables = $service->reacterables();
 
+// ordered by `id`
 $reacterables = $service->reacterablesOrderedBy('id', 'DESC');
 ```
 
@@ -291,7 +296,7 @@ $comments = Comment::orderByReactionsWeight('DESC');
 
 ---
 
-# Configuration
+## Configuration
 
 ---
 
