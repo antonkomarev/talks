@@ -4,7 +4,14 @@
 
 ---
 
-Laravel Love using in applications  для того чтобы пользователи приложения могли выражать эмоции относительно контента который они видят.
+Laravel Love using in applications to let people express their reaction about the content.
+
+There are many different implementations in modern applications:
+
+- Github Reactions
+- Facebook Reactions
+- YouTube Likes
+- and many others
 
 ---
 
@@ -17,6 +24,9 @@ Laravel Love using in applications  для того чтобы пользова�
 - `Reactant` — subject which could receive Reactions.
 - `Reactable` — polymorphic connection with Reactant: Article, Comment, etc.
 - `Reaction` — the response that reveals Reacter's feelings or attitude.
+
+---
+
 - `Reaction Type` — type of the emotional response: Like, Dislike, Love, Hate, etc.
 - `Reaction Weight` — importance added by Reaction to the Reactable content.
 - `Reaction Summary` — computed statistical values of Reactions related to Reactable entities.
@@ -45,7 +55,7 @@ $ php artisan migrate
 
 ## Usage
 
-In example we'll use `User` model as actor to demonstrate easiest implementation,
+In example we will use `User` model as actor to demonstrate easiest implementation,
 but in reality it could be replaced with `Person`, `Organization`, `Bot` or
 any other type of model which implements `Reacterable` contract.
 
