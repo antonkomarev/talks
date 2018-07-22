@@ -9,7 +9,6 @@ There are many different implementations in modern applications:
 - Github Reactions
 - Facebook Reactions
 - YouTube Likes
-- and many others
 
 ---
 
@@ -41,13 +40,13 @@ There are many different implementations in modern applications:
 
 ## Installation
 
-First, pull in the package through Composer.
+Inside your application pull in the package through Composer.
 
 ```sh
 $ composer require cybercog/laravel-love
 ```
 
-Run database migrations.
+And run database migrations.
 
 ```sh
 $ php artisan migrate
@@ -65,15 +64,16 @@ any other type of model which implements `Reacterable` contract.
 
 ### Prepare Reacterable Model
 
-Use `Reacterable` contract in model which will act as Reacter and implement it
-using `Reacterable` trait bundled out of the box.
+Implement `Reacterable` contract in model which will act as Reacter
+and use `Reacterable` trait bundled out of the box.
 
 ```php
 use Cog\Contracts\Love\Reacterable\Models\Reacterable as ReacterableContract;
 use Cog\Laravel\Love\Reacterable\Models\Traits\Reacterable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements ReacterableContract
+class User extends Authenticatable implements
+    ReacterableContract
 {
     use Reacterable;
 }
@@ -83,15 +83,16 @@ class User extends Authenticatable implements ReacterableContract
 
 ### Prepare Reactable Model
 
-Use `Reactable` contract in model which will receive reactions and implement it
-using `Reactable` trait bundled out of the box.
+Implement `Reactable` contract in model which will receive reactions
+and use `Reactable` trait bundled out of the box.
 
 ```php
 use Cog\Contracts\Love\Reactable\Models\Reactable as ReactableContract;
 use Cog\Laravel\Love\Reactable\Models\Traits\Reactable;
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model implements ReactableContract
+class Comment extends Model implements
+    ReactableContract
 {
     use Reactable;
 }
@@ -116,7 +117,7 @@ If `Reacterable` model don't has related `Reacter` model yet, you need to create
 $user->reacter()->create();
 ```
 
-> Creation of the `Reacter` need to be done only once and usually done automatically on `Reacterable` model creation.
+*Creation of the `Reacter` need to be done only once and usually done automatically on `Reacterable` model creation.*
 
 ---
 
@@ -196,7 +197,7 @@ If `Reactable` model don't has related `Reactant` model yet, you need to create 
 $comment->reactant()->create();
 ```
 
-> Creation of the `Reactant` need to be done only once and usually done automatically on `Reactable` model creation.
+*Creation of the `Reactant` need to be done only once and usually done automatically on `Reactable` model creation.*
 
 ---
 
