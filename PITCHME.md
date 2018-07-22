@@ -123,11 +123,13 @@ $user->reacter()->create();
 
 #### 2. Start User to act as Reacter.
 
-We need to get `Reacter` model related to `User` model. Then we will be able to use all `Reacter` methods.
+We need to get `Reacter` model related to `User` model.
 
 ```php
 $reacter = $user->reacter()->first();
 ```
+
+*Then we will be able to use all `Reacter` methods.*
 
 ---
 
