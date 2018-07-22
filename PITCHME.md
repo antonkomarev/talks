@@ -109,11 +109,12 @@ class Comment extends Model implements ReactableContract
 
 If `Reacterable` model don't has related `Reacter` model yet, we need to create it.
 
-> Creation of the `Reacter` need to be done only once and usually done automatically on `Reacterable` model creation.
 
 ```php
 $user->reacter()->create();
 ```
+
+> Creation of the `Reacter` need to be done only once and usually done automatically on `Reacterable` model creation.
 
 ---
 
@@ -189,11 +190,11 @@ $reacter->reactions()->get();
 
 If `Reactable` model don't has related `Reactant` model yet, we need to create it.
 
-> Creation of the `Reactant` need to be done only once and usually done automatically on `Reactable` model creation.
-
 ```php
 $comment->reactant()->create();
 ```
+
+> Creation of the `Reactant` need to be done only once and usually done automatically on `Reactable` model creation.
 
 ---
 
