@@ -1,0 +1,289 @@
+---
+
+# Laravel Love
+
+---
+
+Laravel Love using in applications  для того чтобы пользователи приложения могли выражать эмоции относительно контента который они видят.
+
+---
+
+# Domain
+
+---
+
+- `Reacter` — one who reacts.
+- `Reacterable` — polymorphic connection with Reacter: Person, User, Organization, etc.
+- `Reactant` — subject which could receive Reactions.
+- `Reactable` — polymorphic connection with Reactant: Article, Comment, etc.
+- `Reaction` — the response that reveals Reacter's feelings or attitude.
+- `Reaction Type` — type of the emotional response: Like, Dislike, Love, Hate, etc.
+- `Reaction Weight` — importance added by Reaction to the Reactable content.
+- `Reaction Summary` — computed statistical values of Reactions related to Reactable entities.
+
+---
+
+# Real code
+
+---
+
+## Installation
+
+First, pull in the package through Composer.
+
+```sh
+$ composer require cybercog/laravel-love
+```
+
+Run database migrations.
+
+```sh
+$ php artisan migrate
+```
+
+---
+
+## Usage
+
+In example we'll use `User` model as actor to demonstrate easiest implementation,
+but in reality it could be replaced with `Person`, `Organization`, `Bot` or
+any other type of model which implements `Reacterable` contract.
+
+---
+
+### Prepare Reacterable Model
+
+Use `Cog\Contracts\Love\Reacterable\Models\Reacterable` contract in model which will act as Reacter and implement it
+using `Cog\Laravel\Love\Reacterable\Models\Traits\Reacterable` trait bundled out of the box.
+
+```php
+use Cog\Contracts\Love\Reacterable\Models\Reacterable as ReacterableContract;
+use Cog\Laravel\Love\Reacterable\Models\Traits\Reacterable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class User extends Authenticatable implements ReacterableContract
+{
+    use Reacterable;
+}
+```
+
+---
+
+### Prepare Reactable Model
+
+Use `Cog\Contracts\Love\Reactable\Models\Reactable` contract in model which will receive reactions and implement it
+using `Cog\Laravel\Love\Reactable\Models\Traits\Reactable` trait bundled out of the box.
+
+```php
+use Cog\Contracts\Love\Reactable\Models\Reactable as ReactableContract;
+use Cog\Laravel\Love\Reactable\Models\Traits\Reactable;
+use Illuminate\Database\Eloquent\Model;
+
+class Comment extends Model implements ReactableContract
+{
+    use Reactable;
+}
+```
+
+---
+
+# Use cases
+
+---
+
+## User oriented actions
+
+---
+
+#### 1. Allow User to act as Reacter.
+
+If `Reacterable` model don't has related `Reacter` model yet, we need to create it.
+
+> Creation of the `Reacter` need to be done only once and usually done automatically on `Reacterable` model creation.
+
+```php
+$user->reacter()->create();
+```
+
+---
+
+#### 2. Make User to act as Reacter.
+
+We need to get `Reacter` model related to `User` model. Then we will be able to use all `Reacter` methods.
+
+```php
+$reacter = $user->reacter()->first();
+```
+
+---
+
+#### 3. Reacter reacts to Comment.
+
+```php
+$reacter->reactTo($comment, ReactionType::LIKE);
+```
+
+---
+
+#### 4. Reacter wants to remove reaction from Comment.
+
+```php
+$reacter->removeReactionFrom($comment, ReactionType::LIKE);
+
+//(?) $reacter->undoReactTo($comment, ReactionType::LIKE);
+//(?) $reacter->unreactFrom($comment, ReactionType::LIKE);
+```
+
+---
+
+#### 5. Get all Reactables reacted by Reacter.
+
+```php
+$reactables = [];
+$reactions = $reacter->reactions()->latest('id')->get();
+foreach ($reactions as $reaction) {
+    $reactant = $reaction->reactant()->first();
+
+    $reactables[] = $reactant->reactable()->first();
+}
+```
+
+Or just use service class:
+
+```php
+$service = new ReacterService($reacter);
+$reactables = $service->reactables();
+
+// or
+$reactables = $service->reactablesOrderedBy('id', 'DESC');
+```
+
+---
+
+#### 6. Reactions which Reacter has made.
+
+```php
+$reacter->reactions()->get();
+
+//(?) $reacter->responses()->get();
+//(?) $reacter->reacts()->get();
+```
+
+---
+
+## Content oriented actions
+
+---
+
+#### 1. Allow Comment to act as Reactant.
+
+If `Reactable` model don't has related `Reactant` model yet, we need to create it.
+
+> Creation of the `Reactant` need to be done only once and usually done automatically on `Reactable` model creation.
+
+```php
+$comment->reactant()->create();
+```
+
+---
+
+#### 2. Make Comment to act as Reactant.
+
+```php
+$reactant = $comment->reactant()->first();
+```
+
+---
+
+#### 3. See who's reacted to Reactant.
+
+```php
+$reacterables = [];
+$reactions = $reactant->reactions()->latest('id')->get();
+foreach ($reactions as $reaction) {
+    $reacter = $reaction->reacter()->first();
+
+    $reacterables[] = $reacter->reacterable()->first();
+}
+```
+
+Or just use service class:
+
+```php
+$service = new ReactantService($reactant);
+$reacterables = $service->reacterables();
+
+$reacterables = $service->reacterablesOrderedBy('id', 'DESC');
+```
+
+---
+
+#### 4. Reactions which Reactant has received.
+
+```php
+$reactant->reactions()->get();
+```
+
+---
+
+#### 5. Get reactions summary of the Reactant.
+
+```php
+$reactant->reactionsSummary()->first();
+```
+
+Reaction Summary will include collection of objects with type and aggregated count.
+
+```json
+[
+    {
+        "type": "Like",
+        "count": 4
+    },
+    {
+        "type": "Dislike",
+        "count": 8
+    }
+]
+```
+
+---
+
+#### 6. Order Reactable entities by overall reactions count.
+
+There are situations when even negative reactions should be regarded as content popularity.
+Then 3 likes and 5 dislikes will produce reactions weight equals to 8.
+
+```php
+$comments = Comment::orderByReactionsCount('DESC');
+```
+
+---
+
+#### 7. Order Reactable entities by exact reaction type count.
+
+```php
+$comments = Comment::orderByReactionsCountOfType('Like', 'DESC');
+```
+
+---
+
+#### 8. Order Reactable entities by reaction weight.
+
+When you want to sort content reactions by difference between Likes and Dislikes.
+For example each Reaction of type Like weight equals to +1 when Dislike weigth equals to -1.
+Then 3 likes and 5 dislikes will produce reaction total weight equals to -2.
+
+```php
+$comments = Comment::orderByReactionsWeight('DESC');
+```
+
+---
+
+# Configuration
+
+---
+
+> TODO: Mutually exclusive reactions.
+
+---
