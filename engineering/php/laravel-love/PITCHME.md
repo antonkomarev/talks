@@ -150,7 +150,7 @@ $reacter = $user->reacter()->first();
 #### 3. Reacter reacts to Comment.
 
 ```php
-$reacter->reactTo($comment, ReactionType::LIKE);
+$reacter->reactTo($comment->reactant, ReactionType::LIKE);
 ```
 
 ---
@@ -158,10 +158,7 @@ $reacter->reactTo($comment, ReactionType::LIKE);
 #### 4. Reacter wants to remove reaction from Comment.
 
 ```php
-$reacter->removeReactionFrom($comment, ReactionType::LIKE);
-
-//(?) $reacter->undoReactTo($comment, ReactionType::LIKE);
-//(?) $reacter->unreactFrom($comment, ReactionType::LIKE);
+$reacter->unreactTo($comment->reactant, ReactionType::LIKE);
 ```
 
 ---
@@ -194,9 +191,6 @@ $reactables = $service->reactablesOrderedBy('id', 'DESC');
 
 ```php
 $reacter->reactions()->get();
-
-//(?) $reacter->responses()->get();
-//(?) $reacter->reacts()->get();
 ```
 
 ---
