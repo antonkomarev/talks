@@ -350,4 +350,4 @@ then 3 likes and 5 dislikes will produce reactions weight equals to -2.
 # Thank you
 
 - [Laravel Love](https://github.com/cybercog/laravel-love)
-- [Anton Komarev](https://github.com/antonkomarev)
+- [Anton Komarev](https://ell.folio.su)
