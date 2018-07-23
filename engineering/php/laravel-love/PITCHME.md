@@ -2,7 +2,9 @@
 
 ---
 
-Laravel Love using in applications to let people express their reaction about the content.
+@title[Introduction]
+
+Laravel Love let people express how they feel about the content.
 
 There are many different implementations in modern applications:
 
@@ -16,9 +18,9 @@ There are many different implementations in modern applications:
 
 ---
 
-## Domain
+@title[Domain 1/2]
 
----
+## Domain
 
 @ul
 
@@ -31,6 +33,10 @@ There are many different implementations in modern applications:
 @ulend
 
 ---
+
+@title[Domain 2/2]
+
+## Domain
 
 @ul
 
