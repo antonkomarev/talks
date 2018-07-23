@@ -122,7 +122,7 @@ class Comment extends Model implements
 
 ---
 
-#### 1. Allow User to act as Reacter.
+#### 1. Allow User to act as Reacter
 
 If `Reacterable` model don't has related `Reacter` model yet, you need to create it.
 
@@ -135,7 +135,7 @@ $user->reacter()->create();
 
 ---
 
-#### 2. Start User to act as Reacter.
+#### 2. Start User to act as Reacter
 
 We need to get `Reacter` model related to `User` model.
 
@@ -147,7 +147,7 @@ $reacter = $user->reacter()->first();
 
 ---
 
-#### 3. Reacter reacts to Comment.
+#### 3. Reacter reacts to Comment
 
 ```php
 $reacter->reactTo($comment->reactant, ReactionType::LIKE);
@@ -155,7 +155,7 @@ $reacter->reactTo($comment->reactant, ReactionType::LIKE);
 
 ---
 
-#### 4. Reacter wants to remove reaction from Comment.
+#### 4. Reacter wants to remove reaction from Comment
 
 ```php
 $reacter->unreactTo($comment->reactant, ReactionType::LIKE);
@@ -163,7 +163,7 @@ $reacter->unreactTo($comment->reactant, ReactionType::LIKE);
 
 ---
 
-#### 5. Get all Reactables reacted by Reacter.
+#### 5. Get all Reactables reacted by Reacter
 
 ```php
 $reactables = [];
@@ -187,7 +187,7 @@ $reactables = $service->reactablesOrderedBy('id', 'DESC');
 
 ---
 
-#### 6. Reactions which Reacter has made.
+#### 6. Reactions which Reacter has made
 
 ```php
 $reacter->reactions()->get();
@@ -199,7 +199,7 @@ $reacter->reactions()->get();
 
 ---
 
-#### 1. Allow Comment to act as Reactant.
+#### 1. Allow Comment to act as Reactant
 
 If `Reactable` model don't has related `Reactant` model yet, you need to create it.
 
@@ -211,7 +211,7 @@ $comment->reactant()->create();
 
 ---
 
-#### 2. Make Comment to act as Reactant.
+#### 2. Make Comment to act as Reactant
 
 ```php
 $reactant = $comment->reactant()->first();
@@ -219,7 +219,7 @@ $reactant = $comment->reactant()->first();
 
 ---
 
-#### 3. See who's reacted to Reactant.
+#### 3. See who's reacted to Reactant
 
 ```php
 $reacterables = [];
@@ -243,7 +243,7 @@ $reacterables = $service->reacterablesOrderedBy('id', 'DESC');
 
 ---
 
-#### 4. Reactions which Reactant has received.
+#### 4. Reactions which Reactant has received
 
 ```php
 $reactant->reactions()->get();
@@ -251,7 +251,7 @@ $reactant->reactions()->get();
 
 ---
 
-#### 5. Get reactions summary of the Reactant.
+#### 5. Get reactions summary of the Reactant
 
 ```php
 $reactant->reactionsSummary()->first();
@@ -274,7 +274,7 @@ Reaction Summary will include collection of objects with type and aggregated cou
 
 ---
 
-#### 6. Order Reactable entities by overall reactions count.
+#### 6. Order Reactable entities by overall reactions count
 
 There are situations when even negative reactions should be regarded as content popularity.
 Then 3 likes and 5 dislikes will produce reactions weight equals to 8.
@@ -285,7 +285,7 @@ $comments = Comment::orderByReactionsCount('DESC');
 
 ---
 
-#### 7. Order Reactable entities by exact reaction type count.
+#### 7. Order Reactable entities by exact reaction type count
 
 ```php
 $comments = Comment::orderByReactionsCountOfType('Like', 'DESC');
@@ -293,7 +293,7 @@ $comments = Comment::orderByReactionsCountOfType('Like', 'DESC');
 
 ---
 
-#### 8. Order Reactable entities by reaction weight.
+#### 8. Order Reactable entities by reaction weight
 
 When you want to sort content reactions by difference between Likes and Dislikes.
 For example each Reaction of type Like weight equals to +1 when Dislike weigth equals to -1.
