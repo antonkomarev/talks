@@ -104,7 +104,7 @@ any other type of model which implements `Reacterable` contract.
 ### Prepare Reacterable Model
 
 Implement `Reacterable` contract in model which will act as Reacter
-and use `Reacterable` trait bundled out of the box.
+by using `Reacterable` trait bundled out of the box.
 
 ```php
 use Cog\Contracts\Love\Reacterable\Models\Reacterable as ReacterableContract;
@@ -123,7 +123,7 @@ class User extends Authenticatable implements
 ### Prepare Reactable Model
 
 Implement `Reactable` contract in model which will receive reactions
-and use `Reactable` trait bundled out of the box.
+by using `Reactable` trait bundled out of the box.
 
 ```php
 use Cog\Contracts\Love\Reactable\Models\Reactable as ReactableContract;
