@@ -280,7 +280,8 @@ There are situations when even negative reactions should be regarded as content 
 Then 3 likes and 5 dislikes will produce reactions weight equals to 8.
 
 ```php
-$comments = Comment::orderByReactionsCount('DESC');
+$comments = Comment::query()
+    ->orderByReactionsCount('DESC');
 ```
 
 ---
@@ -288,7 +289,8 @@ $comments = Comment::orderByReactionsCount('DESC');
 #### 7. Order Reactable entities by exact reaction type count
 
 ```php
-$comments = Comment::orderByReactionsCountOfType('Like', 'DESC');
+$comments = Comment::query()
+    ->orderByReactionsCountOfType('Like', 'DESC');
 ```
 
 ---
@@ -300,7 +302,8 @@ For example each Reaction of type Like weight equals to +1 when Dislike weigth e
 Then 3 likes and 5 dislikes will produce reaction total weight equals to -2.
 
 ```php
-$comments = Comment::orderByReactionsWeight('DESC');
+$comments = Comment::query()
+    ->orderByReactionsWeight('DESC');
 ```
 
 ---
