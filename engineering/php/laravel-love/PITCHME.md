@@ -180,7 +180,7 @@ $reacter->reactTo($comment->reactant, ReactionType::LIKE);
 
 +++
 
-#### 4. Reacter wants to remove reaction from Comment
+#### 4. Reacter remove reaction from Comment
 
 ```php
 $reacter->unreactTo($comment->reactant, ReactionType::LIKE);
