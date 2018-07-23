@@ -8,6 +8,10 @@
 
 Laravel Love let people express how they feel about the content.
 
+---
+
+@title[Real world examples]
+
 There are many different implementations in modern applications:
 
 @ul
