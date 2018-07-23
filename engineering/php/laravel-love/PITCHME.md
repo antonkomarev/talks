@@ -6,7 +6,9 @@
 
 ## Laravel Love v6
 
-Laravel Love let people express how they feel about the content.
+Laravel Love is emotional part of the application.
+
+It let people express how they feel about the content.
 
 There are many different implementations in modern applications:
 
@@ -160,7 +162,7 @@ $user->reacter()->create();
 
 +++
 
-#### 2. Start User to act as Reacter
+#### 2. User start to act as Reacter
 
 We need to get `Reacter` model related to `User` model.
 
@@ -276,7 +278,7 @@ $reactant->reactions()->get();
 
 +++
 
-#### 5. Reactions summary
+#### 5. Reactions Summary
 
 ```php
 $reactant->reactionsSummary()->first();
@@ -333,12 +335,19 @@ $comments = Comment::query()
 When Like weight equals to +1 and Dislike weight equals to -1,
 then 3 likes and 5 dislikes will produce reactions weight equals to -2.
 
----
++++
 
-# Configuration
+## Configuration
 
 +++
 
 ### Mutually exclusive reactions
 
 > TODO: Mutually exclusive reactions. 
+
+---
+
+# Thank you
+
+- [Laravel Love](https://github.com/cybercog/laravel-love)
+- [Anton Komarev](https://github.com/antonkomarev)
