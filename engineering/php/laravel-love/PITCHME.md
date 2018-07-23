@@ -94,7 +94,7 @@ $ php artisan migrate
 
 ## Usage
 
-In example we will use `User` model as actor to demonstrate easiest implementation,
+`User` model will act as `Reacter`,
 but in reality it could be replaced with `Person`, `Organization`, `Bot` or
 any other type of model which implements `Reacterable` contract.
 
