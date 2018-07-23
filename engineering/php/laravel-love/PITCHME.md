@@ -94,8 +94,9 @@ $ php artisan migrate
 
 ## Usage
 
-`User` model will act as `Reacter`,
-but in reality it could be replaced with `Person`, `Organization`, `Bot` or
+In demo application `User` model will act as `Reacter`.
+
+In reality it could be replaced with `Person`, `Organization`, `Bot` or
 any other type of model which implements `Reacterable` contract.
 
 +++
