@@ -302,5 +302,3 @@ $comments = Comment::orderByReactionsWeight('DESC');
 ---
 
 > TODO: Mutually exclusive reactions.
-
----
