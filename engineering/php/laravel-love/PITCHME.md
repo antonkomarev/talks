@@ -322,7 +322,7 @@ $comments = Comment::query()
 #### 8. Order Reactables by reaction weight
 
 When you want to sort content reactions by difference between Likes and Dislikes.
-For example each Reaction of type Like weight equals to +1 when Dislike weigth equals to -1.
+For example each Reaction of type Like weight equals to +1 when Dislike weight equals to -1.
 Then 3 likes and 5 dislikes will produce reaction total weight equals to -2.
 
 ```php
@@ -334,6 +334,8 @@ $comments = Comment::query()
 
 # Configuration
 
----
++++
 
-> TODO: Mutually exclusive reactions.
+### Mutually exclusive reactions
+
+> TODO: Mutually exclusive reactions. 
