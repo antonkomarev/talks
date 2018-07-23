@@ -76,16 +76,6 @@ Computed statistical values of Reactions related to Reactables.
 
 ---
 
-## Requirements
-
-@ul
-
-- Laravel 5.6+
-
-@ulend
-
----
-
 ## Installation
 
 Inside your application pull in the package through Composer.
@@ -100,7 +90,7 @@ And run database migrations.
 $ php artisan migrate
 ```
 
----
++++
 
 ## Usage
 
@@ -108,7 +98,7 @@ In example we will use `User` model as actor to demonstrate easiest implementati
 but in reality it could be replaced with `Person`, `Organization`, `Bot` or
 any other type of model which implements `Reacterable` contract.
 
----
++++
 
 ### Prepare Reacterable Model
 
@@ -127,7 +117,7 @@ class User extends Authenticatable implements
 }
 ```
 
----
++++
 
 ### Prepare Reactable Model
 
@@ -146,15 +136,15 @@ class Comment extends Model implements
 }
 ```
 
----
++++
 
 ## Use cases
 
----
++++
 
 ### User oriented actions
 
----
++++
 
 #### 1. Allow User to act as Reacter
 
@@ -167,7 +157,7 @@ $user->reacter()->create();
 
 *Creation of the `Reacter` need to be done only once and usually done automatically on `Reacterable` model creation.*
 
----
++++
 
 #### 2. Start User to act as Reacter
 
@@ -179,7 +169,7 @@ $reacter = $user->reacter()->first();
 
 *Then you will be able to use all `Reacter` methods.*
 
----
++++
 
 #### 3. Reacter reacts to Comment
 
@@ -187,7 +177,7 @@ $reacter = $user->reacter()->first();
 $reacter->reactTo($comment->reactant, ReactionType::LIKE);
 ```
 
----
++++
 
 #### 4. Reacter wants to remove reaction from Comment
 
@@ -195,7 +185,7 @@ $reacter->reactTo($comment->reactant, ReactionType::LIKE);
 $reacter->unreactTo($comment->reactant, ReactionType::LIKE);
 ```
 
----
++++
 
 #### 5. Get all Reactables reacted by Reacter
 
@@ -219,7 +209,7 @@ $reactables = $service->reactables();
 $reactables = $service->reactablesOrderedBy('id', 'DESC');
 ```
 
----
++++
 
 #### 6. Reactions which Reacter has made
 
@@ -227,11 +217,11 @@ $reactables = $service->reactablesOrderedBy('id', 'DESC');
 $reacter->reactions()->get();
 ```
 
----
++++
 
 ### Content oriented actions
 
----
++++
 
 #### 1. Allow Comment to act as Reactant
 
@@ -243,7 +233,7 @@ $comment->reactant()->create();
 
 *Creation of the `Reactant` need to be done only once and usually done automatically on `Reactable` model creation.*
 
----
++++
 
 #### 2. Make Comment to act as Reactant
 
@@ -251,7 +241,7 @@ $comment->reactant()->create();
 $reactant = $comment->reactant()->first();
 ```
 
----
++++
 
 #### 3. See who's reacted to Reactant
 
@@ -275,7 +265,7 @@ $reacterables = $service->reacterables();
 $reacterables = $service->reacterablesOrderedBy('id', 'DESC');
 ```
 
----
++++
 
 #### 4. Reactions which Reactant has received
 
@@ -283,7 +273,7 @@ $reacterables = $service->reacterablesOrderedBy('id', 'DESC');
 $reactant->reactions()->get();
 ```
 
----
++++
 
 #### 5. Reactions summary
 
@@ -306,7 +296,7 @@ Reaction Summary will include collection of objects with type and aggregated cou
 ]
 ```
 
----
++++
 
 #### 6. Order Reactables by total reactions
 
@@ -318,7 +308,7 @@ $comments = Comment::query()
     ->orderByReactionsCount('DESC');
 ```
 
----
++++
 
 #### 7. Order Reactables by exact reaction type count
 
@@ -327,7 +317,7 @@ $comments = Comment::query()
     ->orderByReactionsCountOfType('Like', 'DESC');
 ```
 
----
++++
 
 #### 8. Order Reactables by reaction weight
 
@@ -342,7 +332,7 @@ $comments = Comment::query()
 
 ---
 
-## Configuration
+# Configuration
 
 ---
 
