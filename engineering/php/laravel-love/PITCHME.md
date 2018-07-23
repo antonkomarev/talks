@@ -4,13 +4,19 @@
 
 @title[Introduction]
 
+## Laravel Love v6
+
 Laravel Love let people express how they feel about the content.
 
 There are many different implementations in modern applications:
 
+@ul
+
 - Github Reactions
 - Facebook Reactions
 - YouTube Likes
+
+@ulend
 
 ---
 
@@ -18,25 +24,45 @@ There are many different implementations in modern applications:
 
 ---
 
-@title[Domain 1/2]
+@title[Domain (1/2)]
 
 ## Domain
 
-@ul
+---
 
-- `Reacter` — one who reacts.
-- `Reacterable` — model which act as Reacter: Person, User, Organization, etc.
-- `Reactant` — subject which could receive Reactions.
-- `Reactable` — model which act as Reactant: Article, Comment, etc.
-- `Reaction` — the response that reveals Reacter's feelings or attitude.
+### Reaction
 
-@ulend
+The response that reveals Reacter's feelings or attitude.
+
+---
+
+### Reacter
+
+One who reacts.
+
+---
+
+### Reacterable
+
+Model acting as Reacter: Person, User, Organization, etc.
+
+---
+
+### Reactant
+
+Subject which could receive Reactions.
+
+---
+
+### Reactable
+
+Model acting as Reactant: Article, Comment, etc.
 
 ---
 
 @title[Domain 2/2]
 
-## Domain
+## Domain (2/2)
 
 @ul
 
@@ -49,6 +75,16 @@ There are many different implementations in modern applications:
 ---
 
 # Practice
+
+---
+
+## Requirements
+
+@ul
+
+- Laravel 5.6+
+
+@ulend
 
 ---
 
@@ -251,7 +287,7 @@ $reactant->reactions()->get();
 
 ---
 
-#### 5. Get reactions summary of the Reactant
+#### 5. Reactions summary
 
 ```php
 $reactant->reactionsSummary()->first();
@@ -274,7 +310,7 @@ Reaction Summary will include collection of objects with type and aggregated cou
 
 ---
 
-#### 6. Order Reactables by overall reactions count
+#### 6. Order Reactables by total reactions
 
 There are situations when even negative reactions should be regarded as content popularity.
 Then 3 likes and 5 dislikes will produce reactions weight equals to 8.
