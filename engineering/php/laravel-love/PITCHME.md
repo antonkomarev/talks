@@ -42,7 +42,7 @@ There are many different implementations in modern applications:
 
 - `Reaction Type` — type of the emotional response: Like, Dislike, Love, Hate, etc.
 - `Reaction Weight` — importance added by Reaction to the Reactable content.
-- `Reaction Summary` — computed statistical values of Reactions related to Reactable entities.
+- `Reaction Summary` — computed statistical values of Reactions related to Reactables.
 
 @ulend
 
@@ -274,7 +274,7 @@ Reaction Summary will include collection of objects with type and aggregated cou
 
 ---
 
-#### 6. Order Reactable entities by overall reactions count
+#### 6. Order Reactables by overall reactions count
 
 There are situations when even negative reactions should be regarded as content popularity.
 Then 3 likes and 5 dislikes will produce reactions weight equals to 8.
@@ -286,7 +286,7 @@ $comments = Comment::query()
 
 ---
 
-#### 7. Order Reactable entities by exact reaction type count
+#### 7. Order Reactables by exact reaction type count
 
 ```php
 $comments = Comment::query()
@@ -295,7 +295,7 @@ $comments = Comment::query()
 
 ---
 
-#### 8. Order Reactable entities by reaction weight
+#### 8. Order Reactables by reaction weight
 
 When you want to sort content reactions by difference between Likes and Dislikes.
 For example each Reaction of type Like weight equals to +1 when Dislike weigth equals to -1.
