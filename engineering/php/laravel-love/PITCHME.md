@@ -8,10 +8,6 @@
 
 Laravel Love let people express how they feel about the content.
 
----
-
-@title[Real world examples]
-
 There are many different implementations in modern applications:
 
 @ul
@@ -26,55 +22,53 @@ There are many different implementations in modern applications:
 
 # Theory
 
----
-
-@title[Domain (1/2)]
-
-## Domain
-
----
++++
 
 ### Reaction
 
 The response that reveals Reacter's feelings or attitude.
 
----
++++
 
 ### Reacter
 
 One who reacts.
 
----
++++
 
 ### Reacterable
 
 Model acting as Reacter: Person, User, Organization, etc.
 
----
++++
 
 ### Reactant
 
 Subject which could receive Reactions.
 
----
++++
 
 ### Reactable
 
 Model acting as Reactant: Article, Comment, etc.
 
----
++++
 
-@title[Domain 2/2]
+### Reaction Type
 
-## Domain (2/2)
+Type of the emotional response: Like, Dislike, Love, Hate, etc.
 
-@ul
++++
 
-- `Reaction Type` — type of the emotional response: Like, Dislike, Love, Hate, etc.
-- `Reaction Weight` — importance added by Reaction to the Reactable content.
-- `Reaction Summary` — computed statistical values of Reactions related to Reactables.
+### Reaction Weight
 
-@ulend
+Importance added by Reaction to the Reactable content.
+
++++
+
+### Reaction Summary
+
+Computed statistical values of Reactions related to Reactables.
 
 ---
 
