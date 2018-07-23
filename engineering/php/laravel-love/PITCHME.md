@@ -20,17 +20,25 @@ There are many different implementations in modern applications:
 
 ---
 
+@ul
+
 - `Reacter` — one who reacts.
-- `Reacterable` — polymorphic connection with Reacter: Person, User, Organization, etc.
+- `Reacterable` — model which act as Reacter: Person, User, Organization, etc.
 - `Reactant` — subject which could receive Reactions.
-- `Reactable` — polymorphic connection with Reactant: Article, Comment, etc.
+- `Reactable` — model which act as Reactant: Article, Comment, etc.
 - `Reaction` — the response that reveals Reacter's feelings or attitude.
 
+@ulend
+
 ---
+
+@ul
 
 - `Reaction Type` — type of the emotional response: Like, Dislike, Love, Hate, etc.
 - `Reaction Weight` — importance added by Reaction to the Reactable content.
 - `Reaction Summary` — computed statistical values of Reactions related to Reactable entities.
+
+@ulend
 
 ---
 
