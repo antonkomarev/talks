@@ -40,7 +40,12 @@ One who reacts.
 
 ### Reacterable
 
-Model acting as Reacter: Person, User, Organization, etc.
+Model acting as Reacter:
+
+- Person,
+- User,
+- Organization,
+- etc.
 
 +++
 
@@ -52,13 +57,23 @@ Subject which could receive Reactions.
 
 ### Reactable
 
-Model acting as Reactant: Article, Comment, etc.
+Model acting as Reactant:
+
+- Article,
+- Comment,
+- etc.
 
 +++
 
 ### Reaction Type
 
-Type of the emotional response: Like, Dislike, Love, Hate, etc.
+Type of the emotional response:
+
+- Like,
+- Dislike,
+- Love,
+- Hate,
+- etc.
 
 +++
 
