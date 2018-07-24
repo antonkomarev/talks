@@ -221,13 +221,19 @@ $reacter->reactions()->get();
 #### 7. Check if Reacter reacted to Comment
 
 ```php
-$isReacted = $reacter->isReactedTo($comment->reactant);
-$isNotReacted = $reacter->isNotReactedTo($comment->reactant);
+$isReacted = $reacter
+    ->isReactedTo($comment->reactant);
+
+$isNotReacted = $reacter
+    ->isNotReactedTo($comment->reactant);
 ```
 
 ```php
-$isReacted = $reacter->isReactedWithTypeTo($comment->reactant, $reactionType);
-$isNotReacted = $reacter->isNotReactedWithTypeTo($comment->reactant, $reactionType);
+$isReacted = $reacter
+    ->isReactedWithTypeTo($comment->reactant, $reactionType);
+
+$isNotReacted = $reacter
+    ->isNotReactedWithTypeTo($comment->reactant, $reactionType);
 ```
 
 +++
