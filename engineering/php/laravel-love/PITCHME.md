@@ -42,9 +42,9 @@ One who reacts.
 
 Model acting as Reacter:
 
-- Person,
-- User,
-- Organization,
+- Person
+- User
+- Organization
 - etc.
 
 +++
@@ -59,8 +59,8 @@ Subject which could receive Reactions.
 
 Model acting as Reactant:
 
-- Article,
-- Comment,
+- Article
+- Comment
 - etc.
 
 +++
@@ -69,10 +69,10 @@ Model acting as Reactant:
 
 Type of the emotional response:
 
-- Like,
-- Dislike,
-- Love,
-- Hate,
+- Like
+- Dislike
+- Love
+- Hate
 - etc.
 
 +++
