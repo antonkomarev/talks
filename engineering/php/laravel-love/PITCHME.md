@@ -170,18 +170,18 @@ $reacter = $user->reacter()->first();
 
 +++
 
-#### 3. Reacter reacts to Comment
+#### 3. Reacter reacts to Reactant
 
 ```php
-$reacter->reactTo($comment->reactant, ReactionType::LIKE);
+$reacter->reactTo($reactant, ReactionType::LIKE);
 ```
 
 +++
 
-#### 4. Reacter remove reaction from Comment
+#### 4. Reacter remove reaction from Reactant
 
 ```php
-$reacter->unreactTo($comment->reactant, ReactionType::LIKE);
+$reacter->unreactTo($creactant, ReactionType::LIKE);
 ```
 
 +++
