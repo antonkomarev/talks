@@ -188,6 +188,8 @@ $reacter = $user->reacter()->first();
 #### 3. Reacter reacts to Reactant
 
 ```php
+$reactionType = ReactionType::fromName('Like');
+
 $reacter->reactTo($reactant, $reactionType);
 ```
 
@@ -196,6 +198,8 @@ $reacter->reactTo($reactant, $reactionType);
 #### 4. Reacter remove reaction from Reactant
 
 ```php
+$reactionType = ReactionType::fromName('Like');
+
 $reacter->unreactTo($creactant, $reactionType);
 ```
 
@@ -244,6 +248,8 @@ $isNotReacted = $reacter
 ```
 
 ```php
+$reactionType = ReactionType::fromName('Like');
+
 $isReacted = $reacter
     ->isReactedWithTypeTo($reactant, $reactionType);
 
