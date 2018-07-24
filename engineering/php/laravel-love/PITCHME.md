@@ -141,11 +141,7 @@ class Comment extends Model implements
 
 +++
 
-## Use cases
-
-+++
-
-### User oriented actions
+## User oriented use cases
 
 +++
 
@@ -222,7 +218,7 @@ $reacter->reactions()->get();
 
 +++
 
-### Content oriented actions
+## Content oriented use cases
 
 +++
 
