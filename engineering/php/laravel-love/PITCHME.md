@@ -200,7 +200,7 @@ $reacter->reactTo($reactant, $reactionType);
 ```php
 $reactionType = ReactionType::fromName('Like');
 
-$reacter->unreactTo($creactant, $reactionType);
+$reacter->unreactTo($reactant, $reactionType);
 ```
 
 +++
