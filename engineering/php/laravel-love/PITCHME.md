@@ -167,6 +167,8 @@ If `Reacterable` model don't has related `Reacter` model yet, you need to create
 
 ```php
 $user->reacter()->create();
+
+// $user->createReacter();
 ```
 
 *Creation of the `Reacter` need to be done only once and usually done automatically on `Reacterable` model creation.*
@@ -179,6 +181,8 @@ We need to get `Reacter` model related to `User` model.
 
 ```php
 $reacter = $user->reacter()->first();
+
+// $reacter = $user->getReacter();
 ```
 
 *Then you will be able to use all `Reacter` methods.*
@@ -232,7 +236,9 @@ $reactables = $service->reactablesOrderedBy('id', 'DESC');
 #### 6. Reactions which Reacter has made
 
 ```php
-$reacter->reactions()->get();
+$reactions = $reacter->reactions()->get();
+
+// $reactions = $reacter->getReactions();
 ```
 
 +++
@@ -269,6 +275,8 @@ If `Reactable` model don't has related `Reactant` model yet, you need to create 
 
 ```php
 $comment->reactant()->create();
+
+// $comment->createReactant();
 ```
 
 *Creation of the `Reactant` need to be done only once and usually done automatically on `Reactable` model creation.*
@@ -279,6 +287,8 @@ $comment->reactant()->create();
 
 ```php
 $reactant = $comment->reactant()->first();
+
+// $reactant = $comment->getReactant();
 ```
 
 +++
@@ -310,7 +320,9 @@ $reacterables = $service->reacterablesOrderedBy('id', 'DESC');
 #### 4. Reactions which Reactant has received
 
 ```php
-$reactant->reactions()->get();
+$reactions = $reactant->reactions()->get();
+
+// $reactions = $reactant->getReactions();
 ```
 
 +++
@@ -318,7 +330,9 @@ $reactant->reactions()->get();
 #### 5. Reactions Summary
 
 ```php
-$reactant->reactionsSummary()->first();
+$reactionsSummary = $reactant->reactionsSummary()->first();
+
+// $reactionsSummary = $reactant->getReactionsSummary();
 ```
 
 Reaction Summary will include collection of objects with type and aggregated count.
