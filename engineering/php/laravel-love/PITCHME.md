@@ -254,6 +254,8 @@ $isNotReacted = $reacter
     ->isNotReactedTo($reactant);
 ```
 
++++
+
 #### 8. Check if Reacter reacted to Reactant specifically
 
 ```php
