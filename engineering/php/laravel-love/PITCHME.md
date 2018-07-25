@@ -209,7 +209,18 @@ $reacter->unreactTo($reactant, $reactionType);
 
 +++
 
-#### 5. Get all Reactables reacted by Reacter
+#### 5. Reactions which Reacter has made
+
+```php
+$reactions = $reacter->reactions()->get();
+
+// $reactions = $reacter->getReactions();
+```
+
++++
+
+
+#### 6. Get all Reactables reacted by Reacter
 
 ```php
 $reactables = [];
@@ -233,17 +244,9 @@ $reactables = $service->reactablesOrderedBy('id', 'DESC');
 
 +++
 
-#### 6. Reactions which Reacter has made
-
-```php
-$reactions = $reacter->reactions()->get();
-
-// $reactions = $reacter->getReactions();
-```
-
-+++
-
 #### 7. Check if Reacter reacted to Reactant
+
+Determine if Reacter has reacted to Reactant in any way:
 
 ```php
 $isReacted = $reacter
@@ -252,6 +255,8 @@ $isReacted = $reacter
 $isNotReacted = $reacter
     ->isNotReactedTo($reactant);
 ```
+
+Determine if Reacter has reacted to Reactant specifically:
 
 ```php
 $reactionType = ReactionType::fromName('Like');
@@ -293,7 +298,18 @@ $reactant = $comment->reactant()->first();
 
 +++
 
-#### 3. See who's reacted to Reactant
+
+#### 3. Reactions which Reactant has received
+
+```php
+$reactions = $reactant->reactions()->get();
+
+// $reactions = $reactant->getReactions();
+```
+
++++
+
+#### 4. See who's reacted to Reactant
 
 ```php
 $reacterables = [];
@@ -313,16 +329,6 @@ $reacterables = $service->reacterables();
 
 // ordered by `id`
 $reacterables = $service->reacterablesOrderedBy('id', 'DESC');
-```
-
-+++
-
-#### 4. Reactions which Reactant has received
-
-```php
-$reactions = $reactant->reactions()->get();
-
-// $reactions = $reactant->getReactions();
 ```
 
 +++
