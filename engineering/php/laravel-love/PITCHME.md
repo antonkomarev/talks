@@ -246,8 +246,6 @@ $reactables = $service->reactablesOrderedBy('id', 'DESC');
 
 #### 7. Check if Reacter reacted to Reactant
 
-Determine if Reacter has reacted to Reactant in any way:
-
 ```php
 $isReacted = $reacter
     ->isReactedTo($reactant);
@@ -256,7 +254,7 @@ $isNotReacted = $reacter
     ->isNotReactedTo($reactant);
 ```
 
-Determine if Reacter has reacted to Reactant specifically:
+#### 8. Check if Reacter reacted to Reactant specifically
 
 ```php
 $reactionType = ReactionType::fromName('Like');
