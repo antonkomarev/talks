@@ -358,20 +358,20 @@ Reaction Summary will include collection of objects with type and aggregated cou
 
 +++
 
-#### 6. Order Reactables by total reactions
+#### 6. Order Reactables by total Reactions
 
-There are situations when negative reactions should increase content popularity too.
+👍 3 likes and 👎 5 dislikes will produce 8 reactions total count.
 
 ```php
 $comments = Comment::query()
     ->orderByReactionsCount('DESC');
 ```
 
-👍 3 likes and 👎 5 dislikes will produce 8 reactions total count.
+Concept for social applications when even negative reaction increase popularity of the content.
 
 +++
 
-#### 7. Order Reactables by exact reaction type count
+#### 7. Order Reactables by exact Reaction Type count
 
 ```php
 $comments = Comment::query()
@@ -380,18 +380,18 @@ $comments = Comment::query()
 
 +++
 
-#### 8. Order Reactables by reaction weight
+#### 8. Order Reactables by Reaction Weight
 
-When you want to sort content reactions by difference between Likes and Dislikes.
+Default Like weight equals to +1 and Dislike weight equals to -1.
+
+👍 3 likes and 👎 5 dislikes will produce -2 total reactions weight.
 
 ```php
 $comments = Comment::query()
     ->orderByReactionsWeight('DESC');
 ```
 
-Default Like weight equals to +1 and Dislike weight equals to -1.
-
-👍 3 likes and 👎 5 dislikes will produce -2 total reactions weight.
+When you want to sort content reactions by difference between Likes and Dislikes.
 
 +++
 
