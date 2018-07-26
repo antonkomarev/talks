@@ -389,8 +389,9 @@ $comments = Comment::query()
     ->orderByReactionsWeight('DESC');
 ```
 
-When Like weight equals to +1 and Dislike weight equals to -1,
-then 👍 3 likes and 👎 5 dislikes will produce reactions weight equals to -2.
+Default Like weight equals to +1 and Dislike weight equals to -1.
+
+Then 👍 3 likes and 👎 5 dislikes produces reactions total weight equals to -2.
 
 +++
 
