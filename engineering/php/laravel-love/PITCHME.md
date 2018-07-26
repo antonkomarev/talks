@@ -185,7 +185,7 @@ $reacter = $user->reacter()->first();
 // $reacter = $user->getReacter();
 ```
 
-*Then you will be able to use all `Reacter` methods.*
+*Then you will be able to use all `Reacter`'s methods.*
 
 +++
 
