@@ -26,23 +26,25 @@ There are many different implementations in modern applications:
 
 +++
 
-+++?image=https://user-images.githubusercontent.com/1849174/43216180-f15619b0-9046-11e8-8df7-482258ab3c0c.png&size=80% auto
+## Diagram
+
+![UML](https://user-images.githubusercontent.com/1849174/43216180-f15619b0-9046-11e8-8df7-482258ab3c0c.png)
 
 +++
 
-### Reaction
+## Reaction
 
 The response that reveals Reacter's feelings or attitude.
 
 +++
 
-### Reacter
+## Reacter
 
 One who reacts.
 
 +++
 
-### Reacterable
+## Reacterable
 
 Model acting as Reacter:
 
@@ -53,13 +55,13 @@ Model acting as Reacter:
 
 +++
 
-### Reactant
+## Reactant
 
 Subject which could receive Reactions.
 
 +++
 
-### Reactable
+## Reactable
 
 Model acting as Reactant:
 
@@ -69,7 +71,7 @@ Model acting as Reactant:
 
 +++
 
-### Reaction Type
+## Reaction Type
 
 Type of the emotional response:
 
@@ -81,13 +83,13 @@ Type of the emotional response:
 
 +++
 
-### Reaction Weight
+## Reaction Weight
 
 Importance added by Reaction to the Reactable content.
 
 +++
 
-### Reaction Summary
+## Reaction Summary
 
 Computed statistical values of Reactions related to Reactables.
 
