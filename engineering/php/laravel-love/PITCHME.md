@@ -401,13 +401,23 @@ Default Like weight equals to +1 and Dislike weight equals to -1.
 
 +++
 
-## Configuration
+## Management
 
 +++
 
 ### Mutually exclusive reactions
 
-> TODO: Mutually exclusive reactions. 
+**TODO**
+
+### Customize reactions weights
+
+**TODO**
+
+### Routine terminal commands
+
+- Recalculate likes counter (WIP)
+- Add new ReactionType via console (WIP)
+- Display ReactionTypes table in console (WIP)
 
 ---
 
