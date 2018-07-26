@@ -399,7 +399,7 @@ Default Like weight equals to +1 and Dislike weight equals to -1.
 
 👍 3 likes and 👎 5 dislikes will produce -2 total reactions weight.
 
-+++
+---
 
 # Management
 
