@@ -119,8 +119,8 @@ $ php artisan migrate
 
 In example application:
 
-- `User` model will act as `Reacter`.
-- `Comment` model will act as `Reactant`.
+- `User` model will act as `Reacter` (will be `Reacterable`).
+- `Comment` model will act as `Reactant` (will be `Reactable`).
 
 +++
 
