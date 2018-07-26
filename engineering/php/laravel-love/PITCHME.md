@@ -26,7 +26,7 @@ There are many different implementations in modern applications:
 
 +++
 
----?image=https://user-images.githubusercontent.com/1849174/43216180-f15619b0-9046-11e8-8df7-482258ab3c0c.png&size=80% auto
++++?image=https://user-images.githubusercontent.com/1849174/43216180-f15619b0-9046-11e8-8df7-482258ab3c0c.png&size=80% auto
 
 +++
 
