@@ -401,7 +401,7 @@ Default Like weight equals to +1 and Dislike weight equals to -1.
 
 +++
 
-## Management
+# Management
 
 +++
 
@@ -409,15 +409,13 @@ Default Like weight equals to +1 and Dislike weight equals to -1.
 
 **TODO**
 
-### Customize reactions weights
++++
 
-**TODO**
+### Terminal commands
 
-### Routine terminal commands
-
-- Recalculate likes counter (WIP)
-- Add new ReactionType via console (WIP)
-- Display ReactionTypes table in console (WIP)
+- Recalculate likes counter
+- Add new Reaction Types
+- List Reaction Types table
 
 ---
 
