@@ -386,7 +386,7 @@ $comments = Comment::query()
 
 +++
 
-#### 8. Order Reactables by Reaction Weight
+#### 8. Order Reactables by Reactions Weight
 
 When you want to sort content reactions by difference between Likes and Dislikes.
 
