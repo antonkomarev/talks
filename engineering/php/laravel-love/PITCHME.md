@@ -189,6 +189,8 @@ We need to get `Reacter` model related to `User` model.
 $reacter = $user->reacter()->first();
 
 // $reacter = $user->getReacter();
+
+// $reacter = Reacter::fromReacterable($reacterable);
 ```
 
 *Then you will be able to use all `Reacter` methods.*
@@ -300,6 +302,8 @@ $comment->reactant()->create();
 $reactant = $comment->reactant()->first();
 
 // $reactant = $comment->getReactant();
+
+// $reactant = Reactant::fromReactable($comment);
 ```
 
 +++
