@@ -175,9 +175,7 @@ If `Reacterable` model don't has related `Reacter` model yet, you need to create
 ```php
 $user->reacter()->create();
 
-// $user->createReacter();
 // $user->registerAsReacter();
-// $user->actAsReacter();
 ```
 
 *Creation of the `Reacter` need to be done only once and usually done automatically on `Reacterable` model creation.*
@@ -288,9 +286,7 @@ If `Reactable` model don't has related `Reactant` model yet, you need to create 
 ```php
 $comment->reactant()->create();
 
-// $comment->createReactant();
 // $comment->registerAsReactant();
-// $comment->actAsReactant();
 ```
 
 *Creation of the `Reactant` need to be done only once and usually done automatically on `Reactable` model creation.*
