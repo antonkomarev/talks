@@ -17,6 +17,7 @@ There are many different implementations in modern applications:
 - Github Reactions
 - Facebook Reactions
 - YouTube Likes
+- Medium Claps
 
 @ulend
 
@@ -186,9 +187,7 @@ $user->reacter()->create();
 We need to get `Reacter` model related to `User` model.
 
 ```php
-$reacter = $user->reacter()->first();
-
-// $reacter = $user->getReacter();
+$reacter = $user->getReacter();
 
 // $reacter = Reacter::fromReacterable($reacterable);
 ```
@@ -220,9 +219,7 @@ $reacter->unreactTo($reactant, $reactionType);
 #### 5. Reactions which Reacter has made
 
 ```php
-$reactions = $reacter->reactions()->get();
-
-// $reactions = $reacter->getReactions();
+$reactions = $reacter->getReactions();
 ```
 
 +++
@@ -299,9 +296,7 @@ $comment->reactant()->create();
 #### 2. Make Comment to act as Reactant
 
 ```php
-$reactant = $comment->reactant()->first();
-
-// $reactant = $comment->getReactant();
+$reactant = $comment->getReactant();
 
 // $reactant = Reactant::fromReactable($comment);
 ```
@@ -312,9 +307,7 @@ $reactant = $comment->reactant()->first();
 #### 3. Reactions which Reactant has received
 
 ```php
-$reactions = $reactant->reactions()->get();
-
-// $reactions = $reactant->getReactions();
+$reactions = $reactant->getReactions();
 ```
 
 +++
@@ -346,9 +339,7 @@ $reacterables = $service->reacterablesOrderedBy('id', 'DESC');
 #### 5. Reactions Summary
 
 ```php
-$reactionsSummary = $reactant->reactionsSummary()->first();
-
-// $reactionsSummary = $reactant->getReactionsSummary();
+$reactionsSummary = $reactant->getReactionsSummary();
 ```
 
 Reaction Summary will include collection of objects with type and aggregated count.
