@@ -246,7 +246,7 @@ $service = new ReacterService($reacter);
 $reactables = $service->reactables();
 
 // ordered by `id`
-$reactables = $service->reactablesOrderedBy('id', 'DESC');
+$reactables = $service->reactablesOrderedBy('id', 'desc');
 ```
 
 +++
@@ -335,7 +335,7 @@ $service = new ReactantService($reactant);
 $reacterables = $service->reacterables();
 
 // ordered by `id`
-$reacterables = $service->reacterablesOrderedBy('id', 'DESC');
+$reacterables = $service->reacterablesOrderedBy('id', 'desc');
 ```
 
 +++
@@ -369,7 +369,7 @@ Concept for social applications when even negative reaction increase popularity 
 
 ```php
 $comments = Comment::query()
-    ->orderByReactionsCount('DESC');
+    ->orderByReactionsCount('desc');
 ```
 
 👍 3 likes and 👎 5 dislikes will produce 8 reactions total count.
@@ -379,8 +379,10 @@ $comments = Comment::query()
 #### 7. Order Reactables by exact Reaction Type count
 
 ```php
+$reactionType = ReactionType::fromName('Like');
+
 $comments = Comment::query()
-    ->orderByReactionsCountOfType('Like', 'DESC');
+    ->orderByReactionsCountOfType($reactionType, 'desc');
 ```
 
 +++
@@ -391,7 +393,7 @@ When you want to sort content reactions by difference between Likes and Dislikes
 
 ```php
 $comments = Comment::query()
-    ->orderByReactionsWeight('DESC');
+    ->orderByReactionsWeight('desc');
 ```
 
 Default Like weight equals to +1 and Dislike weight equals to -1.
