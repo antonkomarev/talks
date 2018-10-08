@@ -369,7 +369,8 @@ Concept for social applications when even negative reaction increase popularity 
 
 ```php
 $comments = Comment::query()
-    ->orderByReactionsCount('desc');
+    ->withReactionSummary()
+    ->orderBy('reactions_total_count', 'desc');
 ```
 
 👍 3 likes and 👎 5 dislikes will produce 8 reactions total count.
@@ -382,7 +383,8 @@ $comments = Comment::query()
 $reactionType = ReactionType::fromName('Like');
 
 $comments = Comment::query()
-    ->orderByReactionsCountOfType($reactionType, 'desc');
+    ->withReactionCounterOfType($reactionType)
+    ->orderBy('reactions_count', 'desc');
 ```
 
 +++
@@ -393,7 +395,8 @@ When you want to sort content reactions by difference between Likes and Dislikes
 
 ```php
 $comments = Comment::query()
-    ->orderByReactionsWeight('desc');
+    ->withReactionSummary()
+    ->orderBy('reactions_total_weight', 'desc');
 ```
 
 Default Like weight equals to +1 and Dislike weight equals to -1.
