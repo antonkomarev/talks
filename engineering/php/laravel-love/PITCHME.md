@@ -4,11 +4,11 @@
 
 @title[Introduction]
 
-## Laravel Love v6
+## Laravel Love v7
 
 Laravel Love is emotional part of the application.
 
-It let people express how they feel about the content.
+It let people express how they feel about the content. Make any model reactable in a minutes!
 
 There are many different implementations in modern applications:
 
@@ -17,6 +17,7 @@ There are many different implementations in modern applications:
 - Github Reactions
 - Facebook Reactions
 - YouTube Likes
+- Reddit Votes
 - Medium Claps
 
 @ulend
@@ -47,11 +48,12 @@ One who reacts.
 
 ## Reacterable
 
-Model acting as Reacter:
+Model which can act as Reacter:
 
-- Person
 - User
+- Person
 - Organization
+- Customer
 - etc.
 
 +++
@@ -64,7 +66,7 @@ Subject which could receive Reactions.
 
 ## Reactable
 
-Model acting as Reactant:
+Model which can act as Reactant:
 
 - Article
 - Comment
@@ -79,7 +81,7 @@ Type of the emotional response:
 - Like
 - Dislike
 - Love
-- Hate
+- Sad
 - etc.
 
 +++
@@ -90,9 +92,13 @@ Importance added by Reaction to the Reactable content.
 
 +++
 
-## Reaction Summary
+## Reaction Total
 
-Computed statistical values of Reactions related to Reactables.
+Aggregated statistical values of total reactions count & their weight related to Reactant.
+
+## Reaction Counter
+
+Aggregated statistical values of ReactionTypes related to Reactant.
 
 ---
 
@@ -102,13 +108,13 @@ Computed statistical values of Reactions related to Reactables.
 
 ## Installation
 
-Inside your application pull in the package through Composer.
+Pull in the package through Composer to your application.
 
 ```sh
 $ composer require cybercog/laravel-love
 ```
 
-And run database migrations.
+Run database migrations.
 
 ```sh
 $ php artisan migrate
@@ -125,7 +131,7 @@ In example application:
 
 +++
 
-### Prepare Reacterable Model
+### Setup Reacterable Model
 
 Implement `Reacterable` contract in model which will act as Reacter
 by using `Reacterable` trait bundled out of the box.
@@ -142,9 +148,21 @@ class User extends Authenticatable implements
 }
 ```
 
+Create database migration with artisan setup command.
+
+```sh
+$ php artisan love:setup-reacterable --model="App\User" --nullable
+```
+
+Run migration.
+
+```sh
+$ php artisan migrate
+```
+
 +++
 
-### Prepare Reactable Model
+### Setup Reactable Model
 
 Implement `Reactable` contract in model which will receive reactions
 by using `Reactable` trait bundled out of the box.
@@ -161,6 +179,22 @@ class Comment extends Model implements
 }
 ```
 
+Create database migration with artisan setup command.
+
+```sh
+$ php artisan love:setup-reactable --model="App\Comment" --nullable
+```
+
+Run migration.
+
+```sh
+$ php artisan migrate
+```
+
++++
+
+### Setup Reaction Types
+
 +++
 
 ## User oriented use cases
@@ -169,39 +203,32 @@ class Comment extends Model implements
 
 #### 1. Allow User to act as Reacter
 
-If `Reacterable` model don't has related `Reacter` model yet, you need to create it.
+`Reacterable` registers as `Reacter` only once. It will be done automatically on each successful create of the`Reacterable`.
 
+If `Reacterable` model don't has related `Reacter` model yet you can register it manually.
 
 ```php
-$user->reacter()->create();
-
-// $user->registerAsReacter();
+$user->registerAsLoveReacter();
 ```
-
-*Creation of the `Reacter` need to be done only once and usually done automatically on `Reacterable` model creation.*
 
 +++
 
 #### 2. User start to act as Reacter
 
-We need to get `Reacter` model related to `User` model.
+Get `Reacter` facade from `Reacterable` model.
 
 ```php
-$reacter = $user->getReacter();
-
-// $reacter = Reacter::fromReacterable($reacterable);
+$reacter = $user->viaLoveReacter();
 ```
 
-*Then you will be able to use all `Reacter` methods.*
+*Then you will be able to use all `Reacter` facade methods.*
 
 +++
 
 #### 3. Reacter reacts to Reactant
 
 ```php
-$reactionType = ReactionType::fromName('Like');
-
-$reacter->reactTo($reactant, $reactionType);
+$reacter->reactTo($comment, 'Like');
 ```
 
 +++
@@ -209,9 +236,7 @@ $reacter->reactTo($reactant, $reactionType);
 #### 4. Reacter remove reaction from Reactant
 
 ```php
-$reactionType = ReactionType::fromName('Like');
-
-$reacter->unreactTo($reactant, $reactionType);
+$reacter->unreactTo($comment, 'Like');
 ```
 
 +++
@@ -252,25 +277,17 @@ $reactables = $service->reactablesOrderedBy('id', 'desc');
 #### 7. Check if Reacter reacted to Reactant
 
 ```php
-$isReacted = $reacter
-    ->isReactedTo($reactant);
+$hasReacted = $reacter->hasReactedTo($comment);
 
-$isNotReacted = $reacter
-    ->isNotReactedTo($reactant);
+$hasNotReacted = $reacter->hasNotReactedTo($comment);
 ```
 
-+++
-
-#### 8. Check if Reacter reacted to Reactant specifically
+To check specific reaction type reaction pass it as second argument.
 
 ```php
-$reactionType = ReactionType::fromName('Like');
+$hasReacted = $reacter->hasReacted($comment, 'Like');
 
-$isReacted = $reacter
-    ->isReactedWithTypeTo($reactant, $reactionType);
-
-$isNotReacted = $reacter
-    ->isNotReactedWithTypeTo($reactant, $reactionType);
+$hasNotReacted = $reacter->hasNotReacted($comment, 'Like');
 ```
 
 +++
